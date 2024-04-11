@@ -25,7 +25,7 @@ def get_ips():
 
 
 def reverse_str(ip_addr):
-    return ip_addr [::-1]
+    return ".".join(ip_addr.split(".")[::-1])
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0', port=8000)
