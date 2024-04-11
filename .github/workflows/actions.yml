@@ -26,3 +26,18 @@ jobs:
       with:
         push: true
         tags: samuyi/ip-app:latest
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+  
+    - id: 'get-credentials'
+      uses: 'google-github-actions/get-gke-credentials@v2'
+      with:
+          cluster_name: 'orion-nebula'
+          location: 'us-central1'
+    
+    - id: 'Deploy'
+      run: helm install reverse-ip reverse-ip/
+      
