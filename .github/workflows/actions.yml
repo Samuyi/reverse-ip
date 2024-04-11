@@ -39,5 +39,5 @@ jobs:
           location: 'us-central1'
     
     - id: 'Deploy'
-      run: helm install reverse-ip reverse-ip/
+      run: helm upgrade reverse-ip reverse-ip/
       
